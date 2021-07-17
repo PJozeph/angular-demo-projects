@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ShoppingListService } from 'src/app/shopping-list/shopping-list.service';
 import { Recepie } from '../recepie.model';
 
 @Component({
@@ -10,9 +11,14 @@ export class RecepieDetailComponent implements OnInit {
 
   @Input() selectedRecipe : Recepie; 
 
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit(): void {
+  }
+
+  sendIngredients(recipe : Recepie) {
+    console.log("sending elemnts")
+    recipe.ingredinets.forEach(ingredient => this.shoppingListService.addIngredient(ingredient));
   }
 
 }
