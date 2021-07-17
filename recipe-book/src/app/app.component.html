@@ -1,0 +1,12 @@
+<app-header (selectedFeature)="onNavigate($event)"></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-recepies 
+        *ngIf="loadedFeautre === 'recepies'"
+        (selectedRecepie)="onItemSelected($event)"
+        ></app-recepies>
+      <app-shopping-list *ngIf="loadedFeautre !== 'recepies'">></app-shopping-list>
+    </div>
+  </div>
+</div>
