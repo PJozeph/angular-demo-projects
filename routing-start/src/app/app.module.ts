@@ -39,7 +39,7 @@ import { ServerResolve } from './servers/server/server-resolver';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ServersService, CanEditServer, AuthService],
+  providers: [ServersService, CanEditServer, AuthService, CanDeactivateGuard, ServerResolve],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
