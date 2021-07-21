@@ -16,10 +16,13 @@ const appRoute: Routes = [
         children: [{ path: ':id/:name', component: UserComponent }]
     },
     {
-        path: 'servers', component: ServersComponent,
+        path: 'servers', 
+        component: ServersComponent, 
+        // canActivate : [CanEditServer],
+        canActivateChild : [CanEditServer],
         children: [
             { path: ':id', component: ServerComponent },
-            { path: ':id/edit', component: EditServerComponent, canActivate : [CanEditServer]},
+            { path: ':id/edit', component: EditServerComponent},
         ]
     },
     { path: 'not-found', component: PageNotFoundComponent },

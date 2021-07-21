@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app.routing.module';
 import { CanEditServer } from './servers/edit-server/edit-server-guard';
+import { AuthService } from './servers/auth.service';
 
 
 
@@ -34,7 +35,7 @@ import { CanEditServer } from './servers/edit-server/edit-server-guard';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ServersService, CanEditServer],
+  providers: [ServersService, CanEditServer, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
