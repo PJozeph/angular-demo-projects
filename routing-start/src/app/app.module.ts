@@ -16,6 +16,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRoutingModule } from './app.routing.module';
 import { CanEditServer } from './servers/edit-server/edit-server-guard';
 import { AuthService } from './servers/auth.service';
+import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { ServerResolve } from './servers/server/server-resolver';
 
 
 
@@ -28,7 +31,8 @@ import { AuthService } from './servers/auth.service';
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
