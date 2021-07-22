@@ -21,7 +21,7 @@ const appRoute: Routes = [
     {
         path: 'servers', 
         component: ServersComponent,
-        resolve : [ServerResolve] ,
+        resolve : {server : ServerResolve},
         // canActivate : [CanEditServer],
         canActivateChild : [CanEditServer],
         children: [

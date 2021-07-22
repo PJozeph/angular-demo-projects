@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Recepie } from './recepies/recepie.model';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +6,9 @@ import { Recepie } from './recepies/recepie.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'recepie-book';
+  loadedFeature = 'recipe';
 
-  loadedFeautre = 'recepies';
-  selectedRecepie;
-
-  onNavigate(feature : string) {
-    this.loadedFeautre = feature;
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
   }
-
-
 }
