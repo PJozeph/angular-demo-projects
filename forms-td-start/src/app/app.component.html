@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit)="onSubmit()" #formReference="ngForm">
-        <div id="user-data">
+        <div id="user-data" 
+        ngModelGroup="userData"
+        #userData="ngModelGroup">
           <div class="form-group">
             <label for="username">Username</label>
             <input 
@@ -13,7 +15,7 @@
               name="userName"
               required>
           </div>
-          <button class="btn btn-default" type="button">Suggest an Username</button>
+          <button class="btn btn-default" type="button" (click)=suggestUserName()>Suggest an Username</button>
           <div class="form-group">
             <label for="email">Mail</label>
             <input 
@@ -26,10 +28,11 @@
               email
               #emailRef="ngModel">
               <span class="help-block" *ngIf="!emailRef.valid && emailRef.touched">
-                Lease enter valid email</span>
+                Please enter valid email</span>
           </div>
-          <p *ngIf="">Please enter valid value</p>
+          <p *ngIf="!emailRef.valid && emailRef.touched">Please enter valid value</p>
         </div>
+        <p *ngIf="!userData.valid && userData.touched">User data is invalid</p>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
           <select 
@@ -49,6 +52,16 @@
             [(ngModel)] ='answer'>
           </textarea>
           <p>Your replay : {{answer}}</p>
+          <div class="radio" *ngFor="let gender of genders">
+            <label>
+              <input 
+                type="radio"
+                name="gender"
+                ngModel
+                [value]="gender">
+                {{gender}}
+            </label>
+          </div>
         </div>
         <button 
           class="btn btn-primary" 

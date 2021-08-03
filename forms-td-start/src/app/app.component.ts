@@ -12,9 +12,11 @@ export class AppComponent {
 
   defaultQuestion = 'pet';
   answer = ''
+  genders = ['male', 'female']
 
   suggestUserName() {
     const suggestedName = 'Superuser';
+    this.signUpForm.form.patchValue({userData : {userName : suggestedName}})
   }
 
   // onSubmit(form : NgForm) {
@@ -22,7 +24,7 @@ export class AppComponent {
   // }
 
   onSubmit() {
-    console.log(this.signUpForm)
+    console.log(this.signUpForm.value)
   }
 
 
