@@ -7,7 +7,6 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'form-custom-validator-init';
 
   form : FormGroup;
 
