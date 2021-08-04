@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   ageValidator(min : number, max: number)  {
     return (control: AbstractControl) : {[key: string] : boolean} | null => {
-      return control.value > max || control.value.min < min ? { validatorFailed : true} : null
+      return control.value > max || control.value < min ? { validatorFailed : true} : null
     }
   }
 
