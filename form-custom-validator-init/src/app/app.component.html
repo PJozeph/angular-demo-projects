@@ -1,0 +1,13 @@
+<div class="container">
+    <form [formGroup]="form">
+      <div>
+        Name : 
+        <input type="text" formControlName="name">
+        Age:
+        <input type="text" formControlName="age">
+      </div>
+      <div>
+        <button type="button" (click)="save()">Submit</button>
+      </div>  
+    </form>
+</div>
