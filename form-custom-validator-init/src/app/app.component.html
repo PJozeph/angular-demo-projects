@@ -4,7 +4,8 @@
         Name : 
         <input type="text" formControlName="name">
         Age:
-        <input type="text" formControlName="age">
+        <input type="text" formControlName="age" >
+        <p *ngIf="form.controls.age.invalid && form.controls.age.touched">Invalid value</p>
       </div>
       <div>
         <button type="button" (click)="save()">Submit</button>

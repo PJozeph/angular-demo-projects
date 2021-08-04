@@ -28,5 +28,6 @@ export class AppComponent implements OnInit {
   save() {
     console.log("submitted")
     console.log(this.form)
+    console.log(this.form.valid)
   }
 }
