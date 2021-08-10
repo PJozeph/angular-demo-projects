@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { error } from 'protractor';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { Post } from '../post.model';
 
 @Injectable({ providedIn: 'root' })
@@ -17,14 +18,18 @@ export class PostServiceComponent {
 
   getPosts(): Observable<Post[]> {
     return this.httpClient.get<{ [key: string]: Post }>
-      ('https://angular-demo-8a63e-default-rtdb.europe-west1.firebasedatabase.app/posts.json')
-      .pipe(map(response => {
+      ('https://angular-demo-8a63e-default-rtdb.europe-west1.firebasedatabase.app/')
+      .pipe(
+        map(response => {
         const result: Post[] = [];
         for (const key in response) {
           result.push({ ...response[key], id: key })
         }
         return result;
-      }));
+      }, catchError(error => {
+        // send data somewhere
+        return throwError(error);
+      })));
   }
 
   deleteAll(){
