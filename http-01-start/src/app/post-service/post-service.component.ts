@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { error } from 'protractor';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable, throwError, } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Post } from '../post.model';
 
 @Injectable({ providedIn: 'root' })
@@ -12,13 +11,18 @@ export class PostServiceComponent {
 
   sendData(postData: Post) {
     this.httpClient.post<{ name: string }>(
-      'https://angular-demo-8a63e-default-rtdb.europe-west1.firebasedatabase.app/posts.json', postData)
+      'https://angular-demo-8a63e-default-rtdb.europe-west1.firebasedatabase.app/posts.json', postData, 
+      {observe : 'response'})
       .subscribe(response => console.log(response));
   }
 
   getPosts(): Observable<Post[]> {
     return this.httpClient.get<{ [key: string]: Post }>
-      ('https://angular-demo-8a63e-default-rtdb.europe-west1.firebasedatabase.app/')
+      ('https://angular-demo-8a63e-default-rtdb.europe-west1.firebasedatabase.app/posts.json',{
+        headers : new HttpHeaders({
+          "Custom-header" : "hello-header"
+        })
+      })
       .pipe(
         map(response => {
         const result: Post[] = [];
@@ -33,7 +37,11 @@ export class PostServiceComponent {
   }
 
   deleteAll(){
-    return this.httpClient.delete('https://angular-demo-8a63e-default-rtdb.europe-west1.firebasedatabase.app/posts.json');
+    return this.httpClient
+    .delete('https://angular-demo-8a63e-default-rtdb.europe-west1.firebasedatabase.app/posts.json')
+    .pipe(tap(event => {
+      console.log(event)
+    }));
   }
 
 }
