@@ -13,7 +13,7 @@ export class PostServiceComponent {
     this.httpClient.post<{ name: string }>(
       'https://angular-demo-8a63e-default-rtdb.europe-west1.firebasedatabase.app/posts.json', postData, 
       {observe : 'response'})
-      .subscribe(response => console.log(response));
+      .subscribe();
   }
 
   getPosts(): Observable<Post[]> {
@@ -38,10 +38,7 @@ export class PostServiceComponent {
 
   deleteAll(){
     return this.httpClient
-    .delete('https://angular-demo-8a63e-default-rtdb.europe-west1.firebasedatabase.app/posts.json')
-    .pipe(tap(event => {
-      console.log(event)
-    }));
+    .delete('https://angular-demo-8a63e-default-rtdb.europe-west1.firebasedatabase.app/posts.json');
   }
 
 }
