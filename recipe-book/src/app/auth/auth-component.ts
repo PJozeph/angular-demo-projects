@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnDestroy } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Observable } from "rxjs";
 import { AuthResponseData, AuthService } from "./auth-service";
@@ -26,7 +26,7 @@ export class AuthComponent {
             this.authObservable = this.authService.singIn(ngForm.value.email, ngForm.value.password);
         } else {
             this.isLoading = true;
-            this.authService.signUp(ngForm.value.email, ngForm.value.password);
+            this.authObservable = this.authService.signUp(ngForm.value.email, ngForm.value.password);
         }
 
         this.authObservable.subscribe(response => {
