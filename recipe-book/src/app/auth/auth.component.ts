@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnDestroy, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { AlertComponent } from '../shared/alert/alert.component';
+import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
 
 import { AuthService, AuthResponseData } from './auth.service';
 
@@ -9,12 +11,15 @@ import { AuthService, AuthResponseData } from './auth.service';
   selector: 'app-auth',
   templateUrl: './auth.component.html'
 })
-export class AuthComponent {
+export class AuthComponent implements OnDestroy {
   isLoginMode = true;
   isLoading = false;
   error: string = null;
+  subscription: Subscription;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  @ViewChild(PlaceholderDirective, { static: true }) alertHost: PlaceholderDirective;
+
+  constructor(private authService: AuthService, private router: Router, private componentFactoryResolver: ComponentFactoryResolver) { }
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -46,10 +51,34 @@ export class AuthComponent {
       errorMessage => {
         console.log(errorMessage);
         this.error = errorMessage;
+        this.showError(errorMessage);
         this.isLoading = false;
       }
     );
 
     form.reset();
   }
+  showError(errorMessage: string) {
+    const alertComponentFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
+    const viewContainerRef = this.alertHost.viewControlRef;
+
+    viewContainerRef.clear();
+    const alertComponent = viewContainerRef.createComponent(alertComponentFactory);
+    alertComponent.instance.message = errorMessage;
+    this.subscription = alertComponent.instance.close.subscribe(() => {
+      this.subscription.unsubscribe();
+      viewContainerRef.clear();
+    })
+  }
+
+  handleError() {
+    this.error = null;
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+
 }
