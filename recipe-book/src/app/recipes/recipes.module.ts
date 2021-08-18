@@ -30,6 +30,4 @@ import { RecipesComponent } from "./recipes.component";
         RouterModule, CommonModule, ReactiveFormsModule, RecipeRoutingModule
     ]
 })
-export class RecipeModule {
-
-}
+export class RecipeModule {}
