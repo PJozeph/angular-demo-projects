@@ -15,9 +15,7 @@ export function ShoppingListReducer(state = initialState, action: Actions.AddIng
                 ingredients: [...state.ingredients, action.payload]
             };
 
-            console.log(state.ingredients)
-            default: 
-            console.log("asdf")
+        default: 
             return state;
     }
 }
