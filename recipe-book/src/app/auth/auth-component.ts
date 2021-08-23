@@ -4,6 +4,11 @@ import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { AuthResponseData, AuthService } from "./auth-service";
 
+import * as fromApp from "../store/app.reducer"
+import * as authActions from "../auth/store/auth.actions";
+
+import { Store } from "@ngrx/store";
+
 @Component({
     selector: 'app-auth',
     templateUrl: './auth-component.html'
@@ -16,7 +21,9 @@ export class AuthComponent {
 
     authObservable: Observable<AuthResponseData>
 
-    constructor(private authService: AuthService, private router : Router) { }
+    constructor(private authService: AuthService, 
+                private router : Router,
+                private store : Store<fromApp.AppState>) { }
 
     onSwitchMode() {
         this.isLoginMode = !this.isLoginMode;
@@ -25,6 +32,7 @@ export class AuthComponent {
     onSubmit(ngForm: NgForm) {
         if (this.isLoginMode) {
             this.authObservable = this.authService.singIn(ngForm.value.email, ngForm.value.password);
+            this.store.dispatch(new authReducers.())
         } else {
             this.isLoading = true;
             this.authObservable = this.authService.signUp(ngForm.value.email, ngForm.value.password);

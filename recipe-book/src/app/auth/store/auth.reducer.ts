@@ -1,3 +1,4 @@
+import { UserModel } from "../user-model";
 import { User } from "../user.model";
 import * as AuthActions from "./auth.actions";
 
@@ -13,7 +14,7 @@ export function authReducer(state = initialState, action: AuthActions.AuthAction
 
     switch(action.type) {
         case AuthActions.LOGIN:
-            const user : User = action.payload;
+            const user : UserModel = action.payload;
             return {
                 ...state,
                 user : user
