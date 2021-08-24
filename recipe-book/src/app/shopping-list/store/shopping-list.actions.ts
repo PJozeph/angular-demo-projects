@@ -1,51 +1,50 @@
-import { Action } from "@ngrx/store";
-import { Ingredient } from "src/app/shared/ingredient.model";
+import { Action } from '@ngrx/store';
 
-export const ADD_INGREDIENT = "[Shopping list] Add Ingredient";
-export const ADD_INGREDIENTS = "[Shopping list] Add Ingredients";
-export const DELETE_INGREDIENT = "[Shopping list] Delete Ingredient"
-export const EDIT_INGREDIENT = "[Shopping list] Edit Ingredient"
+import { Ingredient } from '../../shared/ingredient.model';
 
-export const START_EDIT = "[Shopping list] Start Edit";
-export const STOP_EDIT = "[Shopping list] Stop Edit";
+export const ADD_INGREDIENT = '[Shopping List] Add Ingredient';
+export const ADD_INGREDIENTS = '[Shopping List] Add Ingredients';
+export const UPDATE_INGREDIENT = '[Shopping List] Update Ingredient';
+export const DELETE_INGREDIENT = '[Shopping List] Delete Ingredient';
+export const START_EDIT = '[Shopping List] Start Edit';
+export const STOP_EDIT = '[Shopping List] Stop Edit';
 
 export class AddIngredient implements Action {
-    readonly type = ADD_INGREDIENT;
+  readonly type = ADD_INGREDIENT;
 
-    constructor(public payload : Ingredient) {}
+  constructor(public payload: Ingredient) {}
 }
 
 export class AddIngredients implements Action {
-    readonly type = ADD_INGREDIENTS;
+  readonly type = ADD_INGREDIENTS;
 
-    constructor(public payload : Ingredient []) {}
+  constructor(public payload: Ingredient[]) {}
+}
+
+export class UpdateIngredient implements Action {
+  readonly type = UPDATE_INGREDIENT;
+
+  constructor(public payload: Ingredient ) {}
 }
 
 export class DeleteIngredient implements Action {
-    readonly type = DELETE_INGREDIENT;
-
-    constructor() {};
-}
-
-export class EditIngredient implements Action {
-    readonly type = EDIT_INGREDIENT;
-    
-    constructor(public payload : Ingredient) {}
+  readonly type = DELETE_INGREDIENT;
 }
 
 export class StartEdit implements Action {
-    readonly type = START_EDIT;
+  readonly type = START_EDIT;
 
-    constructor(public payload: number) {}
+  constructor(public payload: number) {}
 }
 
 export class StopEdit implements Action {
-    readonly type = STOP_EDIT;
+  readonly type = STOP_EDIT;
 }
 
-export type ShoppingListActions = AddIngredient 
-                                | AddIngredients 
-                                | DeleteIngredient 
-                                | EditIngredient
-                                | StartEdit
-                                | StopEdit;
+export type ShoppingListActions =
+  | AddIngredient
+  | AddIngredients
+  | UpdateIngredient
+  | DeleteIngredient
+  | StartEdit
+  | StopEdit;
