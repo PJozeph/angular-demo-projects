@@ -1,0 +1,6 @@
+<div *ngFor="let movie of movies | async">
+    {{ movie.name }}
+  </div>
+  <div *ngIf="!hasError">
+      Something went wrong!!
+  </div>
