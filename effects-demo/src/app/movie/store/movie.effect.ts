@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
-import { MovieService } from '../movei.service';
+import { MovieService } from '../movie.service';
 import * as movieActions from './movie.action';
 
 @Injectable()
