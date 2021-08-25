@@ -1,7 +1,6 @@
-import { MovieActions } from "./movie.action";
-import * as movieActions from "./movie.action"
 import { Movie } from "../movie.model";
-import { Actions } from "@ngrx/effects";
+import * as movieActions from "./movie.action";
+import { MovieActions } from "./movie.action";
 
 export interface MovieState {
     movies: Movie[];
