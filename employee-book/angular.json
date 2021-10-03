@@ -1,0 +1,137 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "app-employee-book": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/app-employee-book",
+      "sourceRoot": "projects/app-employee-book/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/app-employee-book",
+            "index": "projects/app-employee-book/src/index.html",
+            "main": "projects/app-employee-book/src/main.ts",
+            "polyfills": "projects/app-employee-book/src/polyfills.ts",
+            "tsConfig": "projects/app-employee-book/tsconfig.app.json",
+            "assets": [
+              "projects/app-employee-book/src/favicon.ico",
+              "projects/app-employee-book/src/assets"
+            ],
+            "styles": [
+              "projects/app-employee-book/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/app-employee-book/src/environments/environment.ts",
+                  "with": "projects/app-employee-book/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "app-employee-book:build:production"
+            },
+            "development": {
+              "browserTarget": "app-employee-book:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app-employee-book:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/app-employee-book/src/test.ts",
+            "polyfills": "projects/app-employee-book/src/polyfills.ts",
+            "tsConfig": "projects/app-employee-book/tsconfig.spec.json",
+            "karmaConfig": "projects/app-employee-book/karma.conf.js",
+            "assets": [
+              "projects/app-employee-book/src/favicon.ico",
+              "projects/app-employee-book/src/assets"
+            ],
+            "styles": [
+              "projects/app-employee-book/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "employee-book-core": {
+      "projectType": "library",
+      "root": "projects/employee-book-core",
+      "sourceRoot": "projects/employee-book-core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/employee-book-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/employee-book-core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/employee-book-core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/employee-book-core/src/test.ts",
+            "tsConfig": "projects/employee-book-core/tsconfig.spec.json",
+            "karmaConfig": "projects/employee-book-core/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "app-employee-book"
+}
