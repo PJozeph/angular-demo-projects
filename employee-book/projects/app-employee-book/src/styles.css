@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3.5rem;
+    background-color: white;
+    display: flex;
+}
+
+.container {
+    display: flex;
+    margin-top: 3.5rem;
+}
+  
+.item {
+    height: 50px;
+    width: 50px; /* A fixed width as the default */
+;
+}
+  
+.item-center { 
+    flex-grow: 1; /* Set the middle element to grow and stretch */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.item + .item { 
+    margin-left: 2%; 
+}

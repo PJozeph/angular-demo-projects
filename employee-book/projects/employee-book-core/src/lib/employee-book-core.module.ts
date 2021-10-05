@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
-import { EmployeeBookCoreComponent } from './employee-book-core.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-
-
+import { SearchComponent } from './components/search/search.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MiddleNavigationComponent } from './components/middle-navigation/middle-navigation.component';
 
 @NgModule({
   declarations: [
-    EmployeeBookCoreComponent,
-    EmployeeListComponent
+    SearchComponent,
+    HeaderComponent,
+    MiddleNavigationComponent
   ],
   imports: [
   ],
   exports: [
-    EmployeeBookCoreComponent,
-    EmployeeListComponent
+    SearchComponent,
+    HeaderComponent,
+    MiddleNavigationComponent
   ]
 })
 export class EmployeeBookCoreModule { }

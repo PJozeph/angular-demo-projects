@@ -1,8 +1,10 @@
 <h2>{{title}}</h2>
 <nav>
   <a routerLink="/heroes">Heroes</a>
+  <div (click)='navigateToDialog()'>Dialog</div>
   <hr>
   <a routerLink="/dashboard">Dashboard</a>
 </nav>
+<router-outlet name="dialog"></router-outlet>
 <router-outlet></router-outlet>
 <app-messages></app-messages>
