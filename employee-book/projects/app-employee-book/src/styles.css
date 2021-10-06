@@ -7,6 +7,7 @@
     height: 3.5rem;
     background-color: white;
     display: flex;
+    justify-content: space-between;
 }
 
 .container {
@@ -15,9 +16,10 @@
 }
   
 .item {
-    height: 50px;
-    width: 50px; /* A fixed width as the default */
-;
+    height: 100px;
+    width: 100px; /* A fixed width as the default */
+    display: flex;
+    flex-direction: column;
 }
   
 .item-center { 

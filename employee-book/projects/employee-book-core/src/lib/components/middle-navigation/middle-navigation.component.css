@@ -4,8 +4,6 @@
     width: 20rem;
     height: 2.2rem;
     border-radius: 0.4rem;
-    display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 20rem;
 }

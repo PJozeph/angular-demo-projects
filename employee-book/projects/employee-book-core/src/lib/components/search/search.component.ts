@@ -9,7 +9,14 @@ export class SearchComponent implements OnInit {
 
   constructor() { }
 
+  inputFocus = false;
+
   ngOnInit(): void {
+  }
+
+  focusChange() {
+    this.inputFocus = !this.inputFocus;
+    console.log('focusChange()')
   }
 
 }
