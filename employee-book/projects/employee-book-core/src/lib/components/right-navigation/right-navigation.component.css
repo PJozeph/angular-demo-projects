@@ -1,0 +1,10 @@
+.container {
+    margin: 1rem;
+    background-color: #D3D3D3;
+    width: 10rem;
+    height: 2.2rem;
+    border-radius: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
