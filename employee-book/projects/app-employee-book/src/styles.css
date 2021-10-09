@@ -32,3 +32,10 @@
 .item + .item { 
     margin-left: 2%; 
 }
+
+/* mat-dialog-container#modal-component {
+    border: 3px solid #262626;
+    border-radius: 11px;
+} */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

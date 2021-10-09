@@ -5,7 +5,7 @@ import { MiddleNavigationComponent } from './components/middle-navigation/middle
 import { RightNavigationComponent } from './components/right-navigation/right-navigation.component';
 import { SearchComponent } from './components/search/search.component';
 import { ModalComponent } from './components/modal/modal.component';
-import { WindowComponent } from './generic/window/window.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -15,10 +15,10 @@ import { WindowComponent } from './generic/window/window.component';
     MiddleNavigationComponent,
     RightNavigationComponent,
     ModalComponent,
-    WindowComponent,
   ],
   imports: [
     CommonModule,
+    RouterModule
   ],
   exports: [
     SearchComponent,

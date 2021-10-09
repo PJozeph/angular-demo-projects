@@ -27,6 +27,7 @@
               "projects/app-employee-book/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/app-employee-book/src/styles.css"
             ],
             "scripts": []
@@ -94,6 +95,7 @@
               "projects/app-employee-book/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/app-employee-book/src/styles.css"
             ],
             "scripts": []

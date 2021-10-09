@@ -5,6 +5,9 @@ import { EmployeeBookCoreModule } from 'projects/employee-book-core/src/projects
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +17,9 @@ import { HomeComponent } from './components/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    EmployeeBookCoreModule
+    EmployeeBookCoreModule,
+    BrowserAnimationsModule,
+    MatDialogModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
