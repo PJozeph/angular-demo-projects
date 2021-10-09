@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { MiddleNavigationComponent } from './components/middle-navigation/middle-navigation.component';
 import { RightNavigationComponent } from './components/right-navigation/right-navigation.component';
 import { SearchComponent } from './components/search/search.component';
-import { ModalComponent } from './components/modal/modal.component';
-import { RouterModule } from '@angular/router';
+import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     MiddleNavigationComponent,
     RightNavigationComponent,
-    ModalComponent,
+    CreateEmployeeComponent,
   ],
   imports: [
     CommonModule,

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ModalComponent } from 'projects/employee-book-core/src/lib/components/modal/modal.component';
+import { CreateEmployeeComponent } from 'projects/employee-book-core/src/lib/components/create-employee/create-employee.component';
+
 
 @Component({
   selector: 'app-root',
@@ -18,9 +19,10 @@ export class AppComponent {
     // The user can't close the dialog by clicking outside its body
     dialogConfig.height = "350px";
     dialogConfig.width = "600px";
-    const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
+    dialogConfig.data = { name : 'József'}
+    const modalDialog = this.matDialog.open(CreateEmployeeComponent, dialogConfig);
 
     this.matDialog.afterAllClosed.subscribe( data => 
-      console.log("Dialog output:", data))
+    console.log("Dialog output:", data))
   }
 }

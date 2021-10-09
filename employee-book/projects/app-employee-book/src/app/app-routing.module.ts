@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ModalComponent } from 'projects/employee-book-core/src/lib/components/modal/modal.component';
+import { CreateEmployeeComponent } from 'projects/employee-book-core/src/lib/components/create-employee/create-employee.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  {path : 'dialogWindow', component : ModalComponent, outlet : 'dialog'},
+  {path : 'newEmployee', component : CreateEmployeeComponent},
   {path : '', component : HomeComponent , pathMatch: 'full'},
 ];
 
