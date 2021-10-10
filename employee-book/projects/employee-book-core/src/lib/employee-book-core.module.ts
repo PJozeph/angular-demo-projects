@@ -6,6 +6,8 @@ import { MiddleNavigationComponent } from './components/middle-navigation/middle
 import { RightNavigationComponent } from './components/right-navigation/right-navigation.component';
 import { SearchComponent } from './components/search/search.component';
 import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
+import { LeftLayoutComponent } from './components/layout/left-layout/left-layout.component';
+import { CenterLayoutComponent } from './components/layout/center-layout/center-layout.component';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import { CreateEmployeeComponent } from './components/create-employee/create-emp
     MiddleNavigationComponent,
     RightNavigationComponent,
     CreateEmployeeComponent,
+    LeftLayoutComponent,
+    CenterLayoutComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,9 @@ import { CreateEmployeeComponent } from './components/create-employee/create-emp
   exports: [
     SearchComponent,
     HeaderComponent,
-    MiddleNavigationComponent
+    MiddleNavigationComponent,
+    LeftLayoutComponent,
+    CenterLayoutComponent
   ]
 })
 export class EmployeeBookCoreModule { }

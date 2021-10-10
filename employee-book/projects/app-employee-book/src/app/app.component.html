@@ -1,14 +1,9 @@
 <lib-header [ngClass]="'header'"></lib-header>
-<div class="container">
-    <div class="item">
-        <ul>
-            <li><a routerLink="/employees">List Employees</a></li>
-            <li><a routerLink="/newEmployee">Add employee</a></li>
-            <li><a routerLink="/events">Events</a></li>
-        </ul>
-    </div>
-    <div class="item-center">
-        <router-outlet></router-outlet>
-    </div>
-    <div class="item">right</div>
-</div>
+<main class="employee-book-layout-container">
+    <lib-left-layout 
+        [ngClass]="'employee-book-left-layout-item'"> 
+    </lib-left-layout>
+    <lib-center-layout 
+        [ngClass] ="'employee-book-center-layout-item-center'">
+    </lib-center-layout>
+</main>
