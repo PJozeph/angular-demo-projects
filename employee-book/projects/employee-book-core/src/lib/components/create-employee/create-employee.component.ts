@@ -8,9 +8,23 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class CreateEmployeeComponent implements OnInit {
 
+  firstName : string = '';
+
+  lastName : string = '';
+
+  email : string = '';
+
+  jobTitle : string = '';
+
+  preferredContact : string = ''
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+    console.log('onSave')
   }
 
 }

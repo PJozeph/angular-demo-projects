@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'lib-center-layout',
   templateUrl: './center-layout.component.html',
-  styleUrls: ['./center-layout.component.css']
 })
 export class CenterLayoutComponent implements OnInit {
 

@@ -1,4 +1,24 @@
 .container {
     display: flex;
     flex-direction: column;
+    margin-top: 3rem;
+    border: 1px solid lightgrey;
+    padding: 1rem;
+    width: 20rem;
+    border-radius: 0.7rem;
+}
+
+.line {
+    display: flex;
+    flex-direction: column;
+    margin: 0.3rem;
+}
+
+input {
+    border : 1px solid lightgray;
+    border-radius: 0.3rem;
+}
+
+input:focus {
+    border: 1px solid gray;
 }

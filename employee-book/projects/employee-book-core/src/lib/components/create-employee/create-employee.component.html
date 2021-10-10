@@ -1,13 +1,66 @@
 <div class="container">
-    <label>First Name</label>
-    <input type="text">
-    <label>Last Name</label>
-    <input type="text">
-    <label>Email</label>
-    <input type="text">
-    <label>Job Title</label>
-    <input type="text">
-    <label>Preferred Contact </label>
-    <input type="text">
-    <button>Save</button>
+    <form (ngSubmit)="onSubmit()" #newEmployeeForm="ngForm">
+        <div class="line">
+            <label>First Name</label>
+            <input  type="text" 
+                   required 
+                   [(ngModel)]="firstName" 
+                   name="firstName"
+                   #firstNameModal="ngModel">
+        <div [hidden]="firstNameModal.valid || firstNameModal.pristine"
+             class="alert alert-danger">
+            First name is required
+        </div>
+        </div>
+        <div class="line">
+            <label>Last Name</label>
+            <input type="text"
+                    required
+                    [(ngModel)]="lastName" 
+                    name="lastName"
+                    #lastNameModal="ngModel">
+        </div>
+        <div [hidden]="lastNameModal.valid || lastNameModal.pristine"
+             class="alert alert-danger">
+             Last name is required
+        </div>
+        <div class="line">
+            <label>Email</label>
+            <input type="text"
+                    required
+                    email
+                    [(ngModel)]="email" 
+                    name="email"
+                    #emailModal="ngModel">
+        </div>
+        <div [hidden]="emailModal.valid || emailModal.pristine"
+             class="alert alert-danger">
+             Email is required
+        </div>
+        <div class="line">
+            <label>Job Title</label>
+            <input type="text"
+                   required
+                   [(ngModel)]="jobTitle"
+                   name="jobTitle"
+                   #jobTitleModal="ngModel">
+        </div>
+        <div [hidden]="jobTitleModal.valid || jobTitleModal.pristine"
+             class="alert alert-danger">
+             Job title is required
+        </div>
+        <div class="line">
+            <label>Preferred Contact </label>
+            <input type="text"
+                   required
+                   [(ngModel)]="preferredContact"
+                   name="preferredContact"
+                   #preferredContactModal="ngModel">
+        </div>
+        <div [hidden]="preferredContactModal.valid || preferredContactModal.pristine"
+             class="alert alert-danger">
+             Preferred contact is required
+        </div>
+        <button type="submit" [disabled]=!newEmployeeForm.form.valid>Save</button>
+    </form>
 </div>

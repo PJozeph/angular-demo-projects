@@ -1,13 +1,15 @@
 .container{
+    margin-top: 5rem;
 }
 
 .item {
     background-color:#D3D3D3;
-    border-radius: 1.5rem;
+    border-radius: 0.4rem;
     width: 10rem;
     height: 1.5rem;
     margin-top: 0.7rem;
     text-align: center;
+    color: black;
 }
 
 .container ul {
@@ -18,4 +20,8 @@
 
 .container ul a {
     text-decoration: none;
+}
+
+.active {
+    background-color:	#4267B2;
 }

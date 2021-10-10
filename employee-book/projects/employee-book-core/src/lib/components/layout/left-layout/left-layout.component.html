@@ -1,7 +1,19 @@
 <div class="container">
     <ul>
-        <li class="item"><a routerLink="/employees">List Employees</a></li>
-        <li class="item"> <a routerLink="/newEmployee">Add employee</a></li>
-        <li class="item"><a routerLink="/events">Events</a></li>
+        <li onFocus class="item" [routerLinkActive]="['active']">
+            <a routerLink="/employees">
+                List Employees
+            </a>
+        </li>
+        <li onFocus class="item" [routerLinkActive]="['active']"> 
+            <a routerLink="/newEmployee" >
+                Add employee
+            </a>
+        </li>
+        <li onFocus class="item" [routerLinkActive]="['active']">
+            <a routerLink="/events">
+                Events
+            </a>
+        </li>
     </ul>
 </div>
