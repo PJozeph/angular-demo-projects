@@ -16,8 +16,6 @@
 }
   
 .employee-book-left-layout-item {
-    height: 100px;
-    width: 100px; /* A fixed width as the default */
     display: flex;
     flex-direction: column;
 }
@@ -29,9 +27,9 @@
     align-items: center;
 }
   
-.item + .item { 
+/* .item + .item { 
     margin-left: 2%; 
-}
+} */
 
 /* mat-dialog-container#modal-component {
     border: 3px solid #262626;
